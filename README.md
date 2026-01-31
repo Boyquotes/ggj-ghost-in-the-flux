@@ -1,4 +1,4 @@
-# Global Game Jam 2026 - Ghost in the Flux Team
+# Global Game Jam 2026 - 👻 Ghost in the Flux Team
 
 https://globalgamejam.org/
 
