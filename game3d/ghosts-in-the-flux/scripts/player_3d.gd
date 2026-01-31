@@ -4,22 +4,47 @@ extends CharacterBody3D
 @export var speed: float = 5.0
 @export var acceleration: float = 10.0
 @export var friction: float = 10.0
+@export var deadzone: float = 0.2
+@export var boundary_x: float = 10.0
+@export var boundary_z: float = 10.0
 
 func _physics_process(delta: float) -> void:
-	# Get input direction from keyboard (arrows, WASD) and gamepad
-	var input_x := Input.get_axis("ui_left", "ui_right")
-	var input_z := Input.get_axis("ui_up", "ui_down")
+	# Initialize input values
+	var input_x := 0.0
+	var input_z := 0.0
 	
-	# Add WASD support
-	if Input.is_action_pressed("ui_left") or Input.is_physical_key_pressed(KEY_A):
+	# Check D-pad first (gamepad arrows)
+	if Input.is_joy_button_pressed(0, JOY_BUTTON_DPAD_LEFT):
 		input_x = -1.0
-	elif Input.is_action_pressed("ui_right") or Input.is_physical_key_pressed(KEY_D):
+	elif Input.is_joy_button_pressed(0, JOY_BUTTON_DPAD_RIGHT):
 		input_x = 1.0
+	else:
+		# Check analog stick with deadzone
+		var joy_x = Input.get_joy_axis(0, JOY_AXIS_LEFT_X)
+		if abs(joy_x) > deadzone:
+			input_x = joy_x
+		
+		# Keyboard overrides analog stick
+		if Input.is_physical_key_pressed(KEY_A) or Input.is_physical_key_pressed(KEY_LEFT):
+			input_x = -1.0
+		elif Input.is_physical_key_pressed(KEY_D) or Input.is_physical_key_pressed(KEY_RIGHT):
+			input_x = 1.0
 	
-	if Input.is_action_pressed("ui_up") or Input.is_physical_key_pressed(KEY_W):
+	if Input.is_joy_button_pressed(0, JOY_BUTTON_DPAD_UP):
 		input_z = -1.0
-	elif Input.is_action_pressed("ui_down") or Input.is_physical_key_pressed(KEY_S):
+	elif Input.is_joy_button_pressed(0, JOY_BUTTON_DPAD_DOWN):
 		input_z = 1.0
+	else:
+		# Check analog stick with deadzone
+		var joy_z = Input.get_joy_axis(0, JOY_AXIS_LEFT_Y)
+		if abs(joy_z) > deadzone:
+			input_z = joy_z
+		
+		# Keyboard overrides analog stick
+		if Input.is_physical_key_pressed(KEY_W) or Input.is_physical_key_pressed(KEY_UP):
+			input_z = -1.0
+		elif Input.is_physical_key_pressed(KEY_S) or Input.is_physical_key_pressed(KEY_DOWN):
+			input_z = 1.0
 	
 	# Calculate movement direction in 3D space (XZ plane)
 	var direction := Vector3(input_x, 0, input_z).normalized()
@@ -40,3 +65,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = 0
 	
 	move_and_slide()
+	
+	# Clamp position to stay within boundaries
+	position.x = clamp(position.x, -boundary_x, boundary_x)
+	position.z = clamp(position.z, -boundary_z, boundary_z)
