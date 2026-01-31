@@ -12,9 +12,11 @@
 * Godot JS quickJS ?
 
 > TODO
-Find a good game directory structure
-3d scene for the game with a player and lot of ennemies
-2d scene for menu, credit, options(keyboard, gamepad settings, audio...)
-Export HTML, Linux, Mac, Windows?
-Test multiplayers
-Test debug addons
+[ ] Find a good game directory structure
+[ ] 3d scene for the game with a player and lot of ennemies
+[ ] 2d scene for menu, credit, options(keyboard, gamepad settings, audio...)
+[ ] Export HTML, Linux, Mac, Windows?
+[ ] Publish on VPS
+[ ] Publish on itch.io
+[ ] Test multiplayers
+[ ] Test debug addons
