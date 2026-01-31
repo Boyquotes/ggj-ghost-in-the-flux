@@ -29,8 +29,19 @@ func spawn_enemies():
 			spawn_pos.y = 0
 			
 			# Check distance from player
-			var distance = spawn_pos.distance_to(player.global_position)
-			if distance >= min_distance_from_player:
+			var distance_from_player = spawn_pos.distance_to(player.global_position)
+			var valid_distance = distance_from_player >= min_distance_from_player
+			
+			# Check distance from obstacles
+			var valid_obstacle_distance = true
+			var obstacles = get_tree().get_nodes_in_group("obstacle")
+			for obstacle in obstacles:
+				var distance_from_obstacle = spawn_pos.distance_to(obstacle.global_position)
+				if distance_from_obstacle < 2.0:  # Minimum 2 units from obstacles
+					valid_obstacle_distance = false
+					break
+			
+			if valid_distance and valid_obstacle_distance:
 				valid_position = true
 			
 			attempts += 1

@@ -15,6 +15,7 @@ size = Vector3(20, 0.2, 20)
 
 [node name="Map3D" type="Node3D" unique_id=622871233]
 script = ExtResource("5_map")
+wall_scene = ExtResource("6_wall")
 
 [node name="Floor" type="StaticBody3D" parent="." unique_id=1065503062 groups=["floor"]]
 

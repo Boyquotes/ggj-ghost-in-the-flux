@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8w8w8w8w8w8"]
+[gd_scene format=3 uid="uid://c8w8w8w8w8w8"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_wall"]
 size = Vector3(2, 3, 2)
@@ -6,7 +6,7 @@ size = Vector3(2, 3, 2)
 [sub_resource type="BoxShape3D" id="BoxShape3D_wall"]
 size = Vector3(2, 3, 2)
 
-[node name="WallObstacle" type="StaticBody3D"]
+[node name="WallObstacle" type="StaticBody3D" groups=["obstacle"]]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
