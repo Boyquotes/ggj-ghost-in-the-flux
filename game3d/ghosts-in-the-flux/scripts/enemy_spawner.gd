@@ -5,12 +5,13 @@ extends Node3D
 @export var min_distance_from_player: float = 3.0
 
 func _ready():
-	spawn_enemies()
+	# Defer spawning to ensure all nodes are properly initialized
+	call_deferred("spawn_enemies")
 
 func spawn_enemies():
 	var player = get_tree().get_first_node_in_group("player")
-	if player == null:
-		push_error("Player not found!")
+	if player == null or not player.is_inside_tree():
+		push_error("Player not found or not in tree!")
 		return
 	
 	var num_enemies = Globals.num_enemies

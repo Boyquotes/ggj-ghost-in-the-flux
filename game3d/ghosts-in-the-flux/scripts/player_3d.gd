@@ -6,6 +6,35 @@ extends CharacterBody3D
 @export var friction: float = 10.0
 @export var deadzone: float = 0.2
 
+# Camera zoom parameters
+@export var zoom_speed: float = 2.0
+@export var min_zoom: float = 5.0
+@export var max_zoom: float = 30.0
+@onready var camera = $Camera3D
+var current_zoom: float = 10.0
+
+func _ready():
+	current_zoom = camera.position.z  # Initialize with current camera position
+
+func _input(event):
+	# Handle mouse wheel for zoom
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
+			current_zoom = max(min_zoom, current_zoom - zoom_speed)
+			update_camera_zoom()
+		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
+			current_zoom = min(max_zoom, current_zoom + zoom_speed)
+			update_camera_zoom()
+
+func update_camera_zoom():
+	if camera:
+		# Update camera position (assuming camera is positioned behind player)
+		var camera_pos = camera.position
+		camera_pos.z = current_zoom
+		# Adjust height based on zoom for better perspective
+		camera_pos.y = 8 + (current_zoom - min_zoom) * 0.3
+		camera.position = camera_pos
+
 func _physics_process(delta: float) -> void:
 	# Initialize input values
 	var input_x := 0.0

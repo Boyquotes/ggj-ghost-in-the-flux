@@ -19,7 +19,10 @@ func _ready():
 			var animations = animation_player.get_animation_list()
 			if animations.size() > 0:
 				animation_player.play(animations[0])
-				animation_player.set_loop(true)
+				# Set loop mode for Godot 4
+				var anim = animation_player.get_animation(animations[0])
+				if anim:
+					anim.loop_mode = Animation.LOOP_LINEAR
 			else:
 				push_warning("No animations found in ghost model")
 		else:
