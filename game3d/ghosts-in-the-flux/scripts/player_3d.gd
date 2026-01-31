@@ -5,8 +5,6 @@ extends CharacterBody3D
 @export var acceleration: float = 10.0
 @export var friction: float = 10.0
 @export var deadzone: float = 0.2
-@export var boundary_x: float = 10.0
-@export var boundary_z: float = 10.0
 
 func _physics_process(delta: float) -> void:
 	# Initialize input values
@@ -66,6 +64,13 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	
-	# Clamp position to stay within boundaries
-	position.x = clamp(position.x, -boundary_x, boundary_x)
-	position.z = clamp(position.z, -boundary_z, boundary_z)
+	# Get current plane size from the floor mesh
+	var plane_size = 20.0  # default fallback
+	var floor_mesh = get_tree().get_first_node_in_group("floor")
+	if floor_mesh and floor_mesh is MeshInstance3D and floor_mesh.mesh:
+		plane_size = floor_mesh.mesh.size.x
+	
+	# Clamp position to stay within plane boundaries
+	var half_size = plane_size * 0.5
+	position.x = clamp(position.x, -half_size, half_size)
+	position.z = clamp(position.z, -half_size, half_size)
