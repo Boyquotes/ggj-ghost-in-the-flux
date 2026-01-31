@@ -21,11 +21,12 @@ https://globalgamejam.org/
 ### 🎮 Gameplay
 - [x] 3D scene with player
 - [x] Add many 3D enemies
-- [x] Basic player controller (movement, camera, attack)
+- [x] Basic player controller (movement, camera)
 - [x] Gamepad controller
 - [ ] Mobile controller
-- [ ] Allow to kill enemies -> buller or contact
+- [ ] Allow to attack/kill enemies -> bullets or contact
 - [ ] Enemy AI prototype
+- [ ] Add obstacles and pathfinding for Enemies
 
 ### 🎬 Animations
 - [ ] Player
@@ -72,6 +73,7 @@ https://globalgamejam.org/
 - [ ] FPS monitor
 - [ ] Logs & profiling
 - [ ] Addons a tester : Panku console, Phantom Camera, Beehave AI
+- [ ] Multiplayer template
 
 ---
 
