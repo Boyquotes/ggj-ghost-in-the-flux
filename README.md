@@ -38,6 +38,12 @@ https://globalgamejam.org/
     - [ ] Audio settings
     - [ ] Video settings
 
+### 🎮 Sound
+- [ ] Music Menu
+- [ ] Music Jeu
+- [ ] Bruitages player
+- [ ] Bruitage ennemies
+
 ### 📦 Export
 - [x] HTML (Web)
 - [ ] Linux
