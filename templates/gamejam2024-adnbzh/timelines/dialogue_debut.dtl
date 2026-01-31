@@ -1,0 +1,33 @@
+[music path="res://assets/fantome.ogg" fade="1.0" volume="0.0"]
+[background arg="res://assets/black.png" fade="0.0"]
+
+Il y a longtemps, en des temps immémoriaux...
+
+De nombreuses intempéries rendaient la vie dure aux villageois de Rosporden...
+
+Les habitants situés près de l'étang étaient les plus touchés par ces conditions climatiques malvenues.
+
+En particulier, les crues détruisaient les ponts, rendant impossible tout déplacement.
+
+Les villageois se mirent ensemble afin de trouver une solution à ce problème.
+
+Mais aucune solution ne fut trouvée.
+
+Ainsi ils allèrent demander conseil à la sorcière qui vivait dans la foret près de là.
+
+Celle-ci leur ordonna\:
+
+"Seul l'emmurement d'un enfant vieux de quatre années, et encore en vie, cessera de briser les ponts."
+
+"On le placera dans un fut nu, avec à sa gauche une chandelle bénite, et à sa droite un morceau de pain."
+
+Une mère accepta de livrer ainsi son enfant.
+
+Il ne fallut plus beaucoup de temps avant que l'innocente personne ne fut emmurée dans l'un des ponts, dont on trouvait souvent à se plaindre.
+
+Une grande fete paru à ce moment à Rosporden, et plus jamais les ponts ne s'écroulèrent...
+[wait time="7.0" hide_text="false"]
+do Intro.parametres_base()
+[music fade="0.0" volume="0.0"]
+[signal arg="musique"]
+[end_timeline]

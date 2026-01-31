@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://7sq0cwx516od"]
+
+[ext_resource type="Script" path="res://voiture.gd" id="1_tmcx6"]
+[ext_resource type="Texture2D" uid="uid://cbcc4e73ik17a" path="res://assets/voiture.png" id="2_4o27j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2br8l"]
+size = Vector2(40, 16)
+
+[node name="voiture" type="StaticBody2D"]
+scale = Vector2(4, 4)
+script = ExtResource("1_tmcx6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_4o27j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(7, 2)
+shape = SubResource("RectangleShape2D_2br8l")
+disabled = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(7, 2)
+shape = SubResource("RectangleShape2D_2br8l")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

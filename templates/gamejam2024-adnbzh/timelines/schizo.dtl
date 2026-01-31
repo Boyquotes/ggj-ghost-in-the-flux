@@ -1,0 +1,27 @@
+join schizo 0
+schizo: [...] et ils ne savent pas qui ils sont !
+schizo: L'heure arrivera où les politiques et le nouvel ordre mondial s'écroulera !
+schizo: L'occident vera sa chute arriver, la fin du Kali Yuga signera l'arret du mort du Zeitgeist !!
+- L'interrompre
+	leave schizo
+	join narrateur 0
+	narrateur: Excusez-moi monsieur, vous avez besoin d'aide ?
+	leave narrateur
+	join schizo 0
+- Le laisser continuer
+
+schizo: Ah ! Voilà la jeunesse...
+schizo: ...
+schizo: ...
+schizo: Vous avez l'heure ?
+leave schizo
+join narrateur 0
+narrateur: Il est 18h environ.
+leave narrateur
+join schizo 0
+schizo: Bien ! Il me reste encore bien du travail à faire.
+schizo: Je ne mérite pas ce qu'il m'arrive...
+[signal arg="stopdial"]
+[signal arg="suiteschizo"]
+
+[end_timeline]

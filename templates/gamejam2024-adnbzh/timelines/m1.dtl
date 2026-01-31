@@ -1,0 +1,4 @@
+join narrateur 0
+narrateur: (Vraiment bizarre ce type...)
+[signal arg="stopdial"]
+[end_timeline]

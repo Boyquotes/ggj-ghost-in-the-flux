@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfghkxfdyxtv8"]
+
+[ext_resource type="Texture2D" uid="uid://qncoqg2howsu" path="res://assets/fantome.png" id="1_6t1ya"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fc3ig"]
+size = Vector2(63, 73)
+
+[node name="fantome" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("1_6t1ya")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_fc3ig")
+disabled = true
