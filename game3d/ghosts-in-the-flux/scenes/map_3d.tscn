@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://05xr7wisnqe3"]
+[gd_scene load_steps=7 format=3 uid="uid://05xr7wisnqe3"]
 
 [ext_resource type="PackedScene" uid="uid://bvw8y3xk7mdny" path="res://scenes/player_3d.tscn" id="1_3s4md"]
 [ext_resource type="PackedScene" uid="uid://cg5w3yk2h7mdp" path="res://scenes/ghost_enemy.tscn" id="2_gh0st"]
 [ext_resource type="Script" path="res://scripts/enemy_spawner.gd" id="3_spawn"]
+[ext_resource type="AudioStream" uid="uid://b8q8x8x8x8x8" path="res://assets/music/ghosty.ogg" id="4_music"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_a7x3k"]
 size = Vector2(20, 20)
@@ -30,3 +31,8 @@ shadow_enabled = true
 [node name="EnemySpawner" type="Node3D" parent="."]
 script = ExtResource("3_spawn")
 ghost_scene = ExtResource("2_gh0st")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_music")
+autoplay = true
+max_distance = 50.0
