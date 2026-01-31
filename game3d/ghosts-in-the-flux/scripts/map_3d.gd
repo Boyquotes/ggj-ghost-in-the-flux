@@ -4,7 +4,8 @@ extends Node3D
 
 func _ready():
 	randomize_plane_size()
-	spawn_obstacles()
+	# Defer obstacle spawning to ensure all nodes are properly initialized
+	call_deferred("spawn_obstacles")
 
 func randomize_plane_size():
 	var plane_size = randf_range(Globals.plane_min_size, Globals.plane_max_size)
@@ -30,6 +31,9 @@ func spawn_obstacles():
 		return
 	
 	var player = get_tree().get_first_node_in_group("player")
+	if player == null or not player.is_inside_tree():
+		push_error("Player not found or not in tree!")
+		return
 	var plane_size = $Floor/MeshInstance3D.mesh.size.x
 	var half_size = plane_size * 0.5
 	
@@ -53,7 +57,7 @@ func spawn_obstacles():
 			
 			attempts += 1
 		
-		wall.global_position = spawn_pos
+		wall.position = spawn_pos
 		
 		# Random rotation for variety
 		wall.rotation.y = randf_range(0, 2 * PI)

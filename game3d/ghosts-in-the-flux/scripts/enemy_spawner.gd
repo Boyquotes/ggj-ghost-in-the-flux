@@ -47,5 +47,5 @@ func spawn_enemies():
 			
 			attempts += 1
 		
-		ghost.global_position = spawn_pos
+		ghost.position = spawn_pos
 		add_child(ghost)

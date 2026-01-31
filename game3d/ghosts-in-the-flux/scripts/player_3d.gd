@@ -8,7 +8,7 @@ extends CharacterBody3D
 
 # Camera zoom parameters
 @export var zoom_speed: float = 2.0
-@export var min_zoom: float = 5.0
+@export var min_zoom: float = 3.0
 @export var max_zoom: float = 30.0
 @onready var camera = $Camera3D
 var current_zoom: float = 10.0
