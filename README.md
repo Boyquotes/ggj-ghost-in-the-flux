@@ -1,4 +1,4 @@
-# Global Game Jam 2026 - Ghost in the Flux Team
+# Global Game Jam 2026 - 👻 Ghost in the Flux Team
 
 https://globalgamejam.org/
 
@@ -19,8 +19,11 @@ https://globalgamejam.org/
 - [ ] Find a good game directory structure / Godot Templates
 
 ### 🎮 Gameplay
-- [ ] 3D scene with player and many enemies
-- [ ] Basic player controller (movement, camera, attack)
+- [x] 3D scene with player
+- [ ] Add many 3D enemies
+- [x] Basic player controller (movement, camera, attack)
+- [x] Gamepad controller
+- [ ] Mobile controller
 - [ ] Enemy AI prototype
 
 ### 🖥️ UI / UX
@@ -33,7 +36,7 @@ https://globalgamejam.org/
     - [ ] Audio settings
 
 ### 📦 Export
-- [ ] HTML (Web)
+- [x] HTML (Web)
 - [ ] Linux
 - [ ] macOS
 - [ ] Windows ?
