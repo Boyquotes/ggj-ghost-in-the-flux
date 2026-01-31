@@ -65,6 +65,7 @@ https://globalgamejam.org/
 - [ ] Test debug addons
 - [ ] FPS monitor
 - [ ] Logs & profiling
+- [ ] Addons a tester : Panku console, Phantom Camera, Beehave AI
 
 ---
 
